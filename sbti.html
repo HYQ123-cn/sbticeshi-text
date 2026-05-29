@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大学生SBTI沙雕人格测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", sans-serif;
+        }
+        body {
+            background-color: #f8f9fa;
+            padding: 20px 10px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+        .intro {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .question {
+            margin: 20px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px dashed #eee;
+        }
+        .q-title {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+            line-height: 1.5;
+        }
+        .option {
+            margin: 8px 0;
+            font-size: 15px;
+            cursor: pointer;
+            color: #444;
+        }
+        input[type="radio"] {
+            margin-right: 8px;
+        }
+        .btn-wrap {
+            text-align: center;
+            margin: 30px 0;
+        }
+        button {
+            padding: 10px 26px;
+            font-size: 16px;
+            background: #ff7875;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 0 10px;
+            transition: 0.2s;
+        }
+        button:hover {
+            background: #ff4d4f;
+        }
+        #resultBox {
+            margin-top: 20px;
+            padding: 20px;
+            background: #fff2f2;
+            border-radius: 10px;
+            display: none;
+        }
+        .res-title {
+            font-size: 22px;
+            color: #e53e3e;
+            text-align: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .res-desc {
+            line-height: 1.8;
+            color: #333;
+            font-size: 15px;
+        }
+        .warn {
+            text-align: center;
+            color: #999;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>大学生SBTI沙雕人格测试</h1>
+        <p class="intro">共22题，每题选择最贴合你的状态，完成后点击「查看结果」<br>⚠️ 纯娱乐玩梗，请勿当真哦！</p>
+
+        <form id="sbtiForm">
+            <!-- 1 -->
+            <div class="question">
+                <p class="q-title">1. 早八课来临，你的状态是？</p>
+                <div class="option"><input type="radio" name="q1" value="摆"> A. 睡过头，随缘旷课</div>
+                <div class="option"><input type="radio" name="q1" value="乐"> B. 卡点狂奔，主打极限操作</div>
+                <div class="option"><input type="radio" name="q1" value="疯"> C. 提前到场，低头补觉</div>
+                <div class="option"><input type="radio" name="q1" value="宅"> D. 直接躺平，全天不出宿舍</div>
+            </div>
+            <!-- 2 -->
+            <div class="question">
+                <p class="q-title">2. 宿舍集体约饭，你会？</p>
+                <div class="option"><input type="radio" name="q2" value="乐"> A. 积极响应，主动挑餐厅</div>
+                <div class="option"><input type="radio" name="q2" value="宅"> B. 勉强陪同，全程沉默干饭</div>
+                <div class="option"><input type="radio" name="q2" value="摆"> C. 拒绝出门，点外卖独食</div>
+                <div class="option"><input type="radio" name="q2" value="疯"> D. 起哄玩梗，活跃全场气氛</div>
+            </div>
+            <!-- 3 -->
+            <div class="question">
+                <p class="q-title">3. 收到小组作业通知，第一反应？</p>
+                <div class="option"><input type="radio" name="q3" value="疯"> A. 疯狂划水，坐等大佬带飞</div>
+                <div class="option"><input type="radio" name="q3" value="摆"> B. 拖延到底，截止前再动手</div>
+                <div class="option"><input type="radio" name="q3" value="宅"> C. 默默干活，不爱交流沟通</div>
+                <div class="option"><input type="radio" name="q3" value="乐"> D. 主动牵头，安排分工任务</div>
+            </div>
+            <!-- 4 -->
+            <div class="question">
+                <p class="q-title">4. 课余空闲时间，你更喜欢？</p>
+                <div class="option"><input type="radio" name="q4" value="宅"> A. 宅在宿舍刷剧、打游戏</div>
+                <div class="option"><input type="radio" name="q4" value="乐"> B. 出门逛校园、和朋友闲逛</div>
+                <div class="option"><input type="radio" name="q4" value="摆"> C. 原地发呆，什么都不想做</div>
+                <div class="option"><input type="radio" name="q4" value="疯"> D. 到处凑热闹，参与各类活动</div>
+            </div>
+            <!-- 5 -->
+            <div class="question">
+                <p class="q-title">5. 上课被老师点名回答问题？</p>
+                <div class="option"><input type="radio" name="q5" value="疯"> A. 胡乱回答，主打一个搞笑</div>
+                <div class="option"><input type="radio" name="q5" value="宅"> B. 紧张沉默，低头假装隐身</div>
+                <div class="option"><input type="radio" name="q5" value="乐"> C. 从容应答，心态十分平稳</div>
+                <div class="option"><input type="radio" name="q5" value="摆"> D. 摆烂摇头，表示完全不会</div>
+            </div>
+            <!-- 6 -->
+            <div class="question">
+                <p class="q-title">6. 刷到搞笑段子/梗图，你会？</p>
+                <div class="option"><input type="radio" name="q6" value="乐"> A. 转发群聊，分享给所有人</div>
+                <div class="option"><input type="radio" name="q6" value="疯"> B. 爆笑不停，还自己玩梗改编</div>
+                <div class="option"><input type="radio" name="q6" value="摆"> C. 一笑而过，看完直接划走</div>
+                <div class="option"><input type="radio" name="q6" value="宅"> D. 独自偷笑，从不分享出去</div>
+            </div>
+            <!-- 7 -->
+            <div class="question">
+                <p class="q-title">7. 面对期末考试，你的态度是？</p>
+                <div class="option"><input type="radio" name="q7" value="摆"> A. 佛系裸考，生死由命</div>
+                <div class="option"><input type="radio" name="q7" value="宅"> B. 独自埋头，临时抱佛脚</div>
+                <div class="option"><input type="radio" name="q7" value="乐"> C. 结伴复习，互相划重点</div>
+                <div class="option"><input type="radio" name="q7" value="疯"> D. 一边复习一边摸鱼玩闹</div>
+            </div>
+            <!-- 8 -->
+            <div class="question">
+                <p class="q-title">8. 陌生人主动搭话，你会？</p>
+                <div class="option"><input type="radio" name="q8" value="乐"> A. 热情回应，轻松聊天</div>
+                <div class="option"><input type="radio" name="q8" value="宅"> B. 简单应付，快速结束对话</div>
+                <div class="option"><input type="radio" name="q8" value="摆"> C. 假装没听见，直接躲开</div>
+                <div class="option"><input type="radio" name="q8" value="疯"> D. 花式接梗，聊得不亦乐乎</div>
+            </div>
+            <!-- 9 -->
+            <div class="question">
+                <p class="q-title">9. 宿舍卫生轮到你打扫？</p>
+                <div class="option"><input type="radio" name="q9" value="乐"> A. 认真打扫，保持环境整洁</div>
+                <div class="option"><input type="radio" name="q9" value="摆"> B. 能拖就拖，实在不行随便扫两下</div>
+                <div class="option"><input type="radio" name="q9" value="宅"> C. 默默收拾，不多说一句话</div>
+                <div class="option"><input type="radio" name="q9" value="疯"> D. 边打扫边和室友打闹</div>
+            </div>
+            <!-- 10 -->
+            <div class="question">
+                <p class="q-title">10. 深夜宿舍熄灯后，你在做什么？</p>
+                <div class="option"><input type="radio" name="q10" value="疯"> A. 和室友夜聊、讲八卦玩梗</div>
+                <div class="option"><input type="radio" name="q10" value="宅"> B. 戴耳机玩手机，安静独处</div>
+                <div class="option"><input type="radio" name="q10" value="摆"> C. 翻来覆去，熬夜失眠</div>
+                <div class="option"><input type="radio" name="q10" value="乐"> D. 按时入睡，作息十分规律</div>
+            </div>
+            <!-- 11 -->
+            <div class="question">
+                <p class="q-title">11. 被朋友约着参加校园活动？</p>
+                <div class="option"><input type="radio" name="q11" value="乐"> A. 欣然参加，积极参与互动</div>
+                <div class="option"><input type="radio" name="q11" value="疯"> B. 凑热闹为主，全程玩得开心</div>
+                <div class="option"><input type="radio" name="q11" value="宅"> C. 委婉拒绝，不想抛头露面</div>
+                <div class="option"><input type="radio" name="q11" value="摆"> D. 懒得动弹，直接回绝</div>
+            </div>
+            <!-- 12 -->
+            <div class="question">
+                <p class="q-title">12. 买到难吃的食堂饭菜，你会？</p>
+                <div class="option"><input type="radio" name="q12" value="疯"> A. 疯狂吐槽，和身边人抱怨</div>
+                <div class="option"><input type="radio" name="q12" value="摆"> B. 直接倒掉，随便再找点吃的</div>
+                <div class="option"><input type="radio" name="q12" value="宅"> C. 默默吃完，不发表看法</div>
+                <div class="option"><input type="radio" name="q12" value="乐"> D. 和朋友调侃，一笑了之</div>
+            </div>
+            <!-- 13 -->
+            <div class="question">
+                <p class="q-title">13. 看到别人卷学习/卷竞赛，你？</p>
+                <div class="option"><input type="radio" name="q13" value="摆"> A. 继续摆烂，完全不受影响</div>
+                <div class="option"><input type="radio" name="q13" value="宅"> B. 悄悄焦虑，偶尔跟风学一会</div>
+                <div class="option"><input type="radio" name="q13" value="乐"> C. 平常心看待，做好自己即可</div>
+                <div class="option"><input type="radio" name="q13" value="疯"> D. 吃瓜看戏，调侃卷王同学</div>
+            </div>
+            <!-- 14 -->
+            <div class="question">
+                <p class="q-title">14. 手机没电且没带充电器，你？</p>
+                <div class="option"><input type="radio" name="q14" value="宅"> A. 无所适从，变得手足无措</div>
+                <div class="option"><input type="radio" name="q14" value="摆"> B. 摆烂发呆，熬到回宿舍</div>
+                <div class="option"><input type="radio" name="q14" value="乐"> C. 找人借充电，主动想办法</div>
+                <div class="option"><input type="radio" name="q14" value="疯"> D. 趁机和身边人聊天解闷</div>
+            </div>
+            <!-- 15 -->
+            <div class="question">
+                <p class="q-title">15. 周末规划，你的真实状态？</p>
+                <div class="option"><input type="radio" name="q15" value="乐"> A. 提前计划，出门游玩放松</div>
+                <div class="option"><input type="radio" name="q15" value="宅"> B. 闭门不出，宿舍两日游</div>
+                <div class="option"><input type="radio" name="q15" value="摆"> C. 浑浑噩噩，两天一晃而过</div>
+                <div class="option"><input type="radio" name="q15" value="疯"> D. 到处游荡，随机打卡玩乐</div>
+            </div>
+            <!-- 16 -->
+            <div class="question">
+                <p class="q-title">16. 朋友向你倾诉烦恼，你？</p>
+                <div class="option"><input type="radio" name="q16" value="乐"> A. 耐心安慰，认真开导对方</div>
+                <div class="option"><input type="radio" name="q16" value="疯"> B. 用搞笑段子逗对方开心</div>
+                <div class="option"><input type="radio" name="q16" value="宅"> C. 安静倾听，不善言辞安慰</div>
+                <div class="option"><input type="radio" name="q16" value="摆"> D. 敷衍应付，不想过多操心</div>
+            </div>
+            <!-- 17 -->
+            <div class="question">
+                <p class="q-title">17. 穿搭出门，你更偏向？</p>
+                <div class="option"><input type="radio" name="q17" value="乐"> A. 干净清爽，大方得体</div>
+                <div class="option"><input type="radio" name="q17" value="疯"> B. 个性搞怪，穿搭很有笑点</div>
+                <div class="option"><input type="radio" name="q17" value="宅"> C. 宽松舒适，怎么自在怎么来</div>
+                <div class="option"><input type="radio" name="q17" value="摆"> D. 不修边幅，睡衣都敢出门</div>
+            </div>
+            <!-- 18 -->
+            <div class="question">
+                <p class="q-title">18. 课堂小组上台展示，你？</p>
+                <div class="option"><input type="radio" name="q18" value="乐"> A. 主动上台，流畅完成展示</div>
+                <div class="option"><input type="radio" name="q18" value="疯"> B. 上台整活，活跃全场气氛</div>
+                <div class="option"><input type="radio" name="q18" value="宅"> C. 躲在后排，绝不主动发言</div>
+                <div class="option"><input type="radio" name="q18" value="摆"> D. 全程划水，纯当背景板</div>
+            </div>
+            <!-- 19 -->
+            <div class="question">
+                <p class="q-title">19. 收到临时任务/通知打乱计划？</p>
+                <div class="option"><input type="radio" name="q19" value="乐"> A. 快速调整，配合完成任务</div>
+                <div class="option"><input type="radio" name="q19" value="宅"> B. 默默接受，心里有点烦躁</div>
+                <div class="option"><input type="radio" name="q19" value="摆"> C. 摆烂抗拒，能拖一天是一天</div>
+                <div class="option"><input type="radio" name="q19" value="疯"> D. 一边吐槽一边配合干活</div>
+            </div>
+            <!-- 20 -->
+            <div class="question">
+                <p class="q-title">20. 刷短视频停不下来时？</p>
+                <div class="option"><input type="radio" name="q20" value="疯"> A. 越刷越嗨，跟着视频大笑</div>
+                <div class="option"><input type="radio" name="q20" value="摆"> B. 明知不对，依旧继续沉迷</div>
+                <div class="option"><input type="radio" name="q20" value="宅"> C. 独自观看，不与人交流</div>
+                <div class="option"><input type="radio" name="q20" value="乐"> D. 自我约束，及时放下手机</div>
+            </div>
+            <!-- 21 -->
+            <div class="question">
+                <p class="q-title">21. 放假回家前，你的心情？</p>
+                <div class="option"><input type="radio" name="q21" value="乐"> A. 开心期待，规划假期生活</div>
+                <div class="option"><input type="radio" name="q21" value="疯"> B. 激动狂欢，和同学一起庆祝</div>
+                <div class="option"><input type="radio" name="q21" value="宅"> C. 平淡无感，只想安稳回家</div>
+                <div class="option"><input type="radio" name="q21" value="摆"> D. 麻木无所谓，在哪都一样</div>
+            </div>
+            <!-- 22 -->
+            <div class="question">
+                <p class="q-title">22. 整体形容你的大学生活状态？</p>
+                <div class="option"><input type="radio" name="q22" value="乐"> A. 积极乐观，每天元气满满</div>
+                <div class="option"><input type="radio" name="q22" value="疯"> B. 欢乐搞怪，快乐没有上限</div>
+                <div class="option"><input type="radio" name="q22" value="宅"> C. 安静独处，生活简单平淡</div>
+                <div class="option"><input type="radio" name="q22" value="摆"> D. 佛系摆烂，走一步看一步</div>
+            </div>
+        </form>
+
+        <div class="btn-wrap">
+            <button id="getResult">查看测试结果</button>
+            <button id="resetBtn">重新测试</button>
+        </div>
+
+        <div id="resultBox">
+            <p class="res-title" id="resType"></p>
+            <p class="res-desc" id="resText"></p>
+        </div>
+        <p class="warn">本测试为娱乐向SBTI沙雕人格，仅供同学玩乐~</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('sbtiForm');
+        const getResultBtn = document.getElementById('getResult');
+        const resetBtn = document.getElementById('resetBtn');
+        const resultBox = document.getElementById('resultBox');
+        const resType = document.getElementById('resType');
+        const resText = document.getElementById('resText');
+
+        // 人格库
+        const typeData = {
+            "乐": {
+                name: "快乐显眼包",
+                desc: "你是宿舍和班级里的正能量担当，性格开朗随和，擅长社交、待人友善。做事有分寸，作息相对规律，既能融入集体，也能管好自己。大学生活过得充实又自在，身边朋友都很喜欢和你相处，是人群里温暖的小太阳！"
+            },
+            "疯": {
+                name: "整活搞笑人",
+                desc: "天生段子手+气氛组，走到哪欢乐到哪。热爱玩梗、喜欢凑热闹，擅长用搞笑化解尴尬。做事随性不拘束，上课摸鱼、宿舍整活样样精通。你的大学生活从不无聊，主打一个快乐至上，妥妥的校园活宝！"
+            },
+            "宅": {
+                name: "佛系宅系选手",
+                desc: "典型慢热内向型，偏爱独处，宿舍就是你的快乐星球。不喜欢热闹场合，社交点到为止，习惯安安静静做自己的事。性格温和内敛，踏实靠谱，不爱争抢。享受简单平淡的校园生活，独处对你来说就是最好的放松。"
+            },
+            "摆": {
+                name: "摆烂松弛大师",
+                desc: "主打一个与世无争，摆烂是日常，佛系是常态。对内卷、任务、琐事都提不起兴趣，能躺就躺、能拖就拖。心态极好，很少焦虑，活得十分松弛。虽然偶尔颓废，但心态远超常人，也是一种独特的生活方式~"
+            }
+        };
+
+        // 计算结果
+        getResultBtn.addEventListener('click', function(){
+            let count = {乐:0,疯:0,宅:0,摆:0};
+            const radios = form.querySelectorAll('input[type="radio"]:checked');
+            
+            if(radios.length < 22){
+                alert("请答完所有22道题目再查看结果！");
+                return;
+            }
+
+            radios.forEach(item => {
+                count[item.value]++;
+            });
+
+            // 取最大值
+            let maxNum = -1;
+            let finalType = "乐";
+            for(let key in count){
+                if(count[key] > maxNum){
+                    maxNum = count[key];
+                    finalType = key;
+                }
+            }
+
+            // 展示结果
+            resType.innerText = `你的SBTI人格：${typeData[finalType].name}`;
+            resText.innerText = typeData[finalType].desc;
+            resultBox.style.display = "block";
+            // 滚动到结果
+            resultBox.scrollIntoView({behavior:"smooth"});
+        });
+
+        // 重置
+        resetBtn.addEventListener('click', function(){
+            form.reset();
+            resultBox.style.display = "none";
+            window.scrollTo({top:0,behavior:"smooth"});
+        });
+    </script>
+</body>
+</html>
